@@ -110,33 +110,26 @@ class PersistentBottomNavBar extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: this.navBarDecoration!.borderRadius ??
                           BorderRadius.zero,
-                      child: BackdropFilter(
-                        filter: this
-                                .navBarEssentials!
-                                .items![this.navBarEssentials!.selectedIndex!]
-                                .filter ??
-                            ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-                        child: Container(
-                          decoration: getNavBarDecoration(
-                            showOpacity: false,
-                            decoration: navBarDecoration,
-                            color: this.navBarEssentials!.backgroundColor,
-                            opacity: this
-                                .navBarEssentials!
-                                .items![this.navBarEssentials!.selectedIndex!]
-                                .opacity,
-                          ),
-                          child: SafeArea(
-                            top: false,
-                            right: false,
-                            left: false,
-                            bottom:
-                                this.navBarEssentials!.navBarHeight == 0.0 ||
-                                        (this.hideNavigationBar ?? false)
-                                    ? false
-                                    : confineToSafeArea ?? true,
-                            child: getNavBarStyle()!,
-                          ),
+                      child: Container(
+                        decoration: getNavBarDecoration(
+                          showOpacity: false,
+                          decoration: navBarDecoration,
+                          color: this.navBarEssentials!.backgroundColor,
+                          opacity: this
+                              .navBarEssentials!
+                              .items![this.navBarEssentials!.selectedIndex!]
+                              .opacity,
+                        ),
+                        child: SafeArea(
+                          top: false,
+                          right: false,
+                          left: false,
+                          bottom:
+                              this.navBarEssentials!.navBarHeight == 0.0 ||
+                                      (this.hideNavigationBar ?? false)
+                                  ? false
+                                  : confineToSafeArea ?? true,
+                          child: getNavBarStyle()!,
                         ),
                       ),
                     ),
